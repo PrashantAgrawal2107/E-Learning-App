@@ -1,12 +1,19 @@
 import React from "react";
 import styles from "./Chapter.module.css";
+import { useParams , useOutletContext } from "react-router-dom";
 
 function Chapter() {
+
+  const {chapterId} = useParams();
+  const course = useOutletContext();
+
+  const chapter = course.chapters.find((chap)=>chap.chapter==chapterId);
+
   return (
     <div>
-      <h1>**CHAPTER TITLE**</h1>
-      <h2>**CHAPTER DESCRIPTION**</h2>
-      <p className={styles.para}>**CHAPTER**</p>
+      <h1>{chapter.title}</h1>
+      <h2>{chapter.description}</h2>
+      <p className={styles.para}>{chapter.details}</p>
       <br />
       <br />
       <div className={styles.videos}>
@@ -14,7 +21,7 @@ function Chapter() {
         <iframe
           width="800"
           height="560"
-          src=""
+          src={chapter.video}
           title="React Video"
           frameborder="1"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

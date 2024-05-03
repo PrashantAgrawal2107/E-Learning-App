@@ -1,0 +1,28 @@
+.not-found {
+    width: 40vw;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .not-found h3 {
+    font-size: 1.2rem;
+  }
+  .not-found img {
+    width: 90%;
+  }
+  
+  .not-found button {
+    border: none;
+    outline: none;
+    width: 100%;
+    align-self: center;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #9a64ec;
+    cursor: pointer;
+  }

@@ -1,26 +1,26 @@
 import React from 'react';
+import style from './Page404.module.css'; // Import CSS module
 
-import { useLocation, useNavigate } from 'react-router-dom';
-function Page404() {
-  const location = useLocation();
+import { useNavigate } from 'react-router-dom';
+
+export const Page404 = () => {
   const navigate = useNavigate();
 
+  const back = () => {
+    navigate('/');
+  };
+
   return (
-    <div>
-      <h1>404</h1>
-      <h2>Page Not Found</h2>
-      <p>
-        The page <code>{location.pathname}</code> does not exist.
-      </p>
-      <button
-        onClick={() => {
-          navigate('/');
-        }}
-      >
-        Go to Home
+    <div className={`${style['not-found']} ${style['page']}`}>
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/2748/2748558.png"
+        alt="not found"
+        className={style['not-found__image']}
+      />
+
+      <button className={style['not-found__button']} onClick={back}>
+        Back to Home
       </button>
     </div>
   );
-}
-
-export default Page404;
+};
